@@ -1,0 +1,22 @@
+{
+  "name": "fabricuv",
+  "version": "1.0.0",
+  "description": "asynchronous framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonderfan/fabricuv.git"
+  },
+  "keywords": [
+    "framework"
+  ],
+  "author": "wonderfan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wonderfan/fabricuv/issues"
+  },
+  "homepage": "https://github.com/wonderfan/fabricuv#readme"
+}
