@@ -11,5 +11,8 @@ var redis = new RedisClustr({
 
 redis.set("abc","def");
 
-redis.quit();
+setTimeout(function(){
+    redis.quit();
+},2000);
+
 
