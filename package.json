@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/wonderfan/fabricuv/issues"
   },
-  "homepage": "https://github.com/wonderfan/fabricuv#readme"
+  "homepage": "https://github.com/wonderfan/fabricuv#readme",
+  "dependencies": {
+    "redis-clustr": "^1.6.0"
+  }
 }
