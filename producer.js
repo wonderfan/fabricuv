@@ -7,7 +7,9 @@ const uuid = require('uuid/v4');
         let queue = 'tasks';
         await channel.assertQueue(queue);
         await channel.sendToQueue(queue, Buffer.from(uuid() + ':this is jia he'));
-        await connection.close();
+        setTimeout(function(){
+            connection.close();
+        },2000);
     }catch(err){
         console.error(err);
     }
