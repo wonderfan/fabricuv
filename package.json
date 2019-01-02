@@ -22,7 +22,6 @@
   "dependencies": {
     "amqplib": "^0.5.3",
     "redis": "^2.8.0",
-    "uuid": "^3.3.2",
-    "zeromq": "^5.1.0"
+    "uuid": "^3.3.2"
   }
 }
