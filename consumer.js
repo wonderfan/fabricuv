@@ -3,6 +3,7 @@ const amqp = require('amqplib');
 (async function(){
     try {
         let connection = await amqp.connect('amqp://localhost');
+        process.once('SIGINT', function() { connection.close(); });
         let channel = await connection.createChannel();
         let queue = 'tasks';
         await channel.assertQueue(queue);
