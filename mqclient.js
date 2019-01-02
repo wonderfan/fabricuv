@@ -11,7 +11,9 @@ module.exports = class RabbitClient {
   
   async configureClient(count) {
     var self = this;
+    
     try {
+      
       self._connection = await new Promise(function (resolve, reject) {
         amqp.connect(self._config.rabbitmq, function (err, conn) {
           if(err) {
@@ -22,6 +24,7 @@ module.exports = class RabbitClient {
           }
         });
       });
+      
       self._connection.on('error', function () {
         console.log('Connection error event on rabbit client');
         self.stop().then(function () {
@@ -33,6 +36,7 @@ module.exports = class RabbitClient {
           throw err;
         });
       });
+      
       self._connection.on('close', function () {
         console.log('Connection closed event on rabbit client');
         self._connection = null;
@@ -42,6 +46,7 @@ module.exports = class RabbitClient {
           throw err;
         });
       });
+      
       self._channel = await new Promise(function (resolve, reject) {
         self._connection.createChannel(function (err, ch) {
           if(err) {
@@ -52,6 +57,7 @@ module.exports = class RabbitClient {
           }
         });
       });
+      
       self._queue = await new Promise(function (resolve, reject) {
         self._channel.assertQueue('', {
           exclusive: true
@@ -77,6 +83,15 @@ module.exports = class RabbitClient {
       }
     }
   }
+  
+  async produce(message) {
+    
+  }
+  
+  async consume() {
+    
+  }
+  
   async stop() {
     try {
       if(this._channel) {
@@ -88,4 +103,5 @@ module.exports = class RabbitClient {
       console.log("Error in closing channel");
     }
   }
+  
 }
