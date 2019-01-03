@@ -5,13 +5,10 @@ const uuid = require('uuid/v4');
         let connection = await amqp.connect('amqp://localhost');
         let channel = await connection.createChannel();
         let queue = 'tasks';
-        let ok = channel.assertQueue(queue);
-        ok.then(function(){
-            channel.sendToQueue(queue, Buffer.from(uuid() + ':this is jia he'));
-            return channel.close();
-        }).then(function(){
-            connection.close();
-        });
+        await channel.assertQueue(queue);
+        channel.sendToQueue(queue, Buffer.from(uuid() + ':this is jia he'));
+        await channel.close();
+        connection.close();
     }catch(err){
         console.error(err);
     }finally{
